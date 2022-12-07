@@ -1,0 +1,33 @@
+<div class="row">
+
+  <div class="col col-md-6">
+    {{#each post}}
+    <div class="row mb-2">
+      <div class="card col">
+        <div class="card-body">
+          <h5 class="card-title">Noah Brimhall</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Dec 7, 1:57 PM</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <h2 class="pb-3 border-bottom border-secondary">Create Post</h2>
+    <form>
+      <div class="mb-3">
+        <label for="productPrice" class="form-label">Title</label>
+        <input type="text" class="form-control" id="postTitle">
+      </div>
+      <div class="mb-3">
+        <label for="productDesc" class="form-label">Text</label>
+        <textarea class="form-control" id="postBody" rows="6"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="signUpSubmit">Post</button>
+    </form>
+  </div>
+</div>
+
+<script src="./js/dashboard.js"></script>
