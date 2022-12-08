@@ -24,11 +24,12 @@ Post.init(
       allowNull: false,
       references: {
         model: 'user',
-        key: id
+        key: 'id'
       }
     }
   },
   {
+    freezeTableName: true,
     sequelize,
     modelName: 'post'
   }
