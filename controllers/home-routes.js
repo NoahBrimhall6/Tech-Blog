@@ -18,6 +18,8 @@ router.get('/', async (req, res) => {
 // Render the dashboard
 router.get('/dashboard', async (req, res) => {
   try {
+    const postData = await Post.findAll();
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('dashboard');
   } catch (err) {
