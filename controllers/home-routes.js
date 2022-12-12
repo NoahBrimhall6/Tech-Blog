@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 });
 
 // Render the dashboard
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll();
     const posts = postData.map((post) => post.get({ plain: true }));
