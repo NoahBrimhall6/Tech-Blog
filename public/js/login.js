@@ -15,7 +15,7 @@ $('#loginSubmit').click(async event => {
 
   const response = await fetch('api/users/login', {
     method: 'POST',
-    body: JSON.stringify({ loginEmail, loginPassword }),
+    body: JSON.stringify({ email: loginEmail, password: loginPassword }),
     headers: { 'Content-Type': 'application/json' }
   });
 
@@ -36,20 +36,20 @@ $('#signUpSubmit').click(async event => {
     return;
   }
 
-  var userEmail = $('#userEmail').val().trim();
-  if (!userEmail) {
+  var email = $('#userEmail').val().trim();
+  if (!email) {
     $('.alert').text('Please enter an email address').css('display', 'flex');
     return;
   }
   
-  var userPhone = $('#userPhone').val().trim();
-  if (!userPhone) {
+  var phone_number = $('#userPhone').val().trim();
+  if (!phone_number) {
     $('.alert').text('Please enter a phone number').css('display', 'flex');
     return;
   }
 
-  var userPassword = $('#userPassword').val().trim();
-  if (!userPassword) {
+  var password = $('#userPassword').val().trim();
+  if (!password) {
     $('.alert').text('Please enter a password').css('display', 'flex');
     return;
   }
@@ -60,14 +60,14 @@ $('#signUpSubmit').click(async event => {
     return;
   }
 
-  if (userPassword !== userVerify) {
+  if (password !== userVerify) {
     $('.alert').text('Your passwords do not match').css('display', 'flex');
     return;
   }
 
   const response = await fetch('/api/users', {
     method: 'POST',
-    body: JSON.stringify({ username, userEmail, userPhone, userPassword }),
+    body: JSON.stringify({ username, email, phone_number, password }),
     headers: { 'Content-Type': 'application/json' }
   });
 
@@ -75,6 +75,7 @@ $('#signUpSubmit').click(async event => {
     location.replace('/');
   } else {
     $('.alert').text('Failed to sign up a new user').css('display', 'flex');  
+    console.error(response);
     return;
   }
 });

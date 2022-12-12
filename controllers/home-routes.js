@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll();
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('homepage', { posts });
+    res.render('homepage', { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
     console.log('Unable to render homepage');
@@ -21,7 +21,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const postData = await Post.findAll();
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('dashboard');
+    res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
     console.log('Unable to render dashboard');
@@ -31,7 +31,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
 // Render login page
 router.get('/login', async (req, res) => {
   try {
-
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
     res.render('login');
   } catch (err) {
     res.status(500).json(err);
