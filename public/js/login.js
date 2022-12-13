@@ -13,7 +13,7 @@ $('#loginSubmit').click(async event => {
     return;
   }
 
-  const response = await fetch('api/users/login', {
+  const response = await fetch('/api/users/login', {
     method: 'POST',
     body: JSON.stringify({ email: loginEmail, password: loginPassword }),
     headers: { 'Content-Type': 'application/json' }

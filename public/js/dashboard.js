@@ -1,4 +1,4 @@
-$('#signUpSubmit').click(async (event) => {
+$('#postBtn').click(async (event) => {
   event.preventDefault();
 
   const title = $('#postTitle').val().trim();

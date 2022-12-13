@@ -1,0 +1,40 @@
+<div class="row justify-content-center mb-2">
+  <div class="card col col-lg-6">
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{post.user.username}} - {{post.createdAt}}</h6>
+      <p class="card-text">{{post.body}}</p>
+    </div>
+  </div>
+</div>
+
+<form class="row mb-3">
+  <div class="col-12 col-sm-auto">
+    <label for="comment" class="form-label">Comments</label>
+  </div>
+  <div class="col-12 col-sm-8">
+    <textarea class="form-control" id="comment" rows="1" placeholder="Add Comment"></textarea>
+  </div>
+  <div class="col-12 col-sm-auto">
+    <button type="submit" class="btn btn-primary" id="commentBtn">Submit</button>
+  </div>
+</form>
+
+{{#each comments as |comment|}}
+<div class="row justify-content-center mb-2">
+  <div class="col col-lg-6 mb-2">
+    <div class="card">
+      <div class="card-header">
+        {{comment.user.username}}
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          {{comment.comment}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+<script src="/js/post.js"></script>

@@ -16,6 +16,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Render a post
+router.get('/post/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, { include: User });
+    const post = postData.get({ plain: true });
+
+    // Get comment data from the database
+    const commentData = await Comment.findAll({
+      where: { post_id: req.params.id },
+      include: User
+    });
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+    console.log(comments);
+
+    res.render('post', { post, comments, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(`Unable to render post ${req.params.id}`);
+  }
+});
+
 // Render the dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
   try {

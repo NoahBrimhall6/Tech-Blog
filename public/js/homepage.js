@@ -1,7 +1,7 @@
 $('.card').click(function (event) {
-  var elementId = $(this).attr('id');
-  console.log(elementId);
-
+  const postId = $(this).attr('id');
+  console.log(postId);
+  document.location.replace(`/post/${postId}`);
 });
 
 
