@@ -1,10 +1,10 @@
-{{#each posts}}
+{{#each posts as |post|}}
 <div class="row justify-content-center mb-2">
-  <div class="card col col-lg-6" id="{{posts.id}}">
+  <div class="card col col-lg-6" id="{{post.id}}">
     <div class="card-body">
-      <h5 class="card-title">{{posts.title}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{posts.createdAt}}</h6>
-      <p class="card-text">{{posts.body}}</p>
+      <h5 class="card-title">{{post.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{post.user.username}} - {{post.createdAt}}</h6>
+      <p class="card-text">{{post.body}}</p>
     </div>
   </div>
 </div>

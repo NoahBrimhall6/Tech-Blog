@@ -5,13 +5,13 @@
 <div class="row">
 
   <div class="col col-md-6">
-    {{#each post}}
+    {{#each posts as |post|}}
     <div class="row mb-2">
       <div class="card col">
         <div class="card-body">
-          <h5 class="card-title">Noah Brimhall</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Dec 7, 1:57 PM</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">{{post.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{post.user.username}} - {{post.createdAt}}</h6>
+          <p class="card-text">{{post.body}}</p>
         </div>
       </div>
     </div>
