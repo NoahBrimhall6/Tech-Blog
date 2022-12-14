@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/NoahBrimhall6/Tech-Blog/issues"
   },
+  "engines": {
+    "node": "16.17.0"
+  },
   "homepage": "https://github.com/NoahBrimhall6/Tech-Blog#readme"
 }
