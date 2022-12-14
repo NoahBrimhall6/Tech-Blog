@@ -9,9 +9,12 @@
     <div class="row mb-2">
       <div class="card col" id="{{post.id}}">
         <div class="card-body">
-          <h5 class="card-title">{{post.title}}</h5>
+          <h5 class="card-title" contenteditable="true" id="title-{{post.id}}">{{post.title}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{post.user.username}} - {{post.createdAt}}</h6>
-          <p class="card-text">{{post.body}}</p>
+          <p class="card-text" contenteditable="true" id="body-{{post.id}}">{{post.body}}</p>
+          <button type="submit" class="btn btn-danger deleteBtn">Delete</button>
+          <button type="submit" class="btn btn-success updateBtn">Update</button>
+          <button type="submit" class="btn btn-info commentBtn">Comments</button>
         </div>
       </div>
     </div>
