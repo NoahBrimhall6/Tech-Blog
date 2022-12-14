@@ -17,7 +17,7 @@
   
   ## Installation
   
-  Go to the deployed application on heroku!
+  Go to the deployed application on heroku! [Here!](https://whispering-savannah-24297.herokuapp.com/)
   
   ## Usage
   
@@ -33,7 +33,6 @@
 
   This project was made with HTML, Bootstrap, NodeJS, ExpressJS, mySQL, Sequelize, and Handlebars for express.
   
-  ## Tests
 
   
 
